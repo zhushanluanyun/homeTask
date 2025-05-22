@@ -78,7 +78,7 @@ docker ps | grep transaction-system
 ### 单元测试
 mvn test
 ### 压力测试
-
+使用jmeter 进行压力测试
 ## 依赖库说明
 
 1. **Spring Boot Starter Web**：提供 Web 应用开发能力
