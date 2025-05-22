@@ -22,13 +22,10 @@ public class TransactionSearchReqDto {
     // 操作账户
     private String accountId;
     // 金额
-    @DecimalMin(value = "0.01", message = "金额必须大于0")
     private BigDecimal amount;
     // 金额
-    @DecimalMin(value = "0.01", message = "金额必须大于0")
     private BigDecimal minAmount;
     // 金额
-    @DecimalMin(value = "0.01", message = "金额必须大于0")
     private BigDecimal MaxAmount;
     // 更新时间
     private Instant startCreateTime;

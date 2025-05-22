@@ -101,4 +101,56 @@ class TransactionRepositoryTest {
         assertNotNull(page);
         assertFalse(page.getContent().isEmpty());
     }
+
+    @Test
+    void testListTransactionsNotExsist() {
+        Transaction transaction1 = Transaction.builder()
+                .accountId("123")
+                .amount(BigDecimal.TEN)
+                .typeCode(1)
+                .createTime(Instant.now())
+                .description("Test transaction 1")
+                .build();
+        Transaction transaction2 = Transaction.builder()
+                .accountId("123")
+                .amount(BigDecimal.ONE)
+                .typeCode(1)
+                .createTime(Instant.now())
+                .description("Test transaction 2")
+                .build();
+        transactionRepository.save(transaction1);
+        transactionRepository.save(transaction2);
+
+        TransactionSearchReqDto reqDto = new TransactionSearchReqDto();
+        reqDto.setAccountId("456");
+        Page<TransactionRespDto> page = transactionRepository.listTransactions(reqDto);
+        assertTrue(page.getContent().isEmpty());
+
+    }
+
+    @Test
+    void testListTransactionsPage() {
+        Transaction transaction1 = Transaction.builder()
+                .accountId("123")
+                .amount(BigDecimal.TEN)
+                .typeCode(1)
+                .createTime(Instant.now())
+                .description("Test transaction 1")
+                .build();
+        Transaction transaction2 = Transaction.builder()
+                .accountId("123")
+                .amount(BigDecimal.ONE)
+                .typeCode(1)
+                .createTime(Instant.now())
+                .description("Test transaction 2")
+                .build();
+        transactionRepository.save(transaction1);
+        transactionRepository.save(transaction2);
+
+        TransactionSearchReqDto reqDto = new TransactionSearchReqDto();
+        reqDto.setPage(1);
+        reqDto.setSize(1);
+        Page<TransactionRespDto> page = transactionRepository.listTransactions(reqDto);
+        assertEquals(1, page.getContent().size());
+    }
 }

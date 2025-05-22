@@ -160,6 +160,9 @@ public class TransactionServiceImpl implements TransactionService {
                 reqDto.getMinAmount() == null &&
                 reqDto.getMaxAmount() == null &&
                 reqDto.getStartCreateTime() == null &&
-                reqDto.getEndCreateTime() == null;
+                reqDto.getEndCreateTime() == null &&
+                reqDto.getSize() == 10 &&
+                reqDto.getPage() == 1
+                ;
     }
 }    
