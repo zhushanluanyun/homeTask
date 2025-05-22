@@ -64,7 +64,8 @@
 mvn spring-boot:run
 ### 使用 Docker 运行
 # 构建 Docker 镜像
-先使用maven package 再运行docker build命令
+先使用maven package 再运行docker build命令 
+
 docker build -t transaction-system .
 
 # 运行容器
