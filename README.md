@@ -60,8 +60,8 @@
 #### 删除交易DELETE /api/transactions/{id}
 ## 运行项目
 
-### 使用 Maven 运行
-mvn spring-boot:run
+### 使用 java 命令 运行
+java -jar homeTask-0.0.1-SNAPSHOT.jar
 ### 使用 Docker 运行
 # 构建 Docker 镜像
 先使用maven package 再运行docker build命令 
